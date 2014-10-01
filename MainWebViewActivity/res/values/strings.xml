@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MissNo.3</string>
+    <string name="GetUrl">http://garden.decoder.com.tw/insurance_crm</string>
+
+    <string name="loading">載入中...</string>
+    <string name="action_settings">Settings</string>
+    <string name="str_year">年</string>
+    <string name="str_month">月</string>
+    <string name="str_date">日</string>
+    <string name="str_hour">時</string>
+    <string name="str_minute">分</string>
+    <string name="str_second">秒</string>
+    <string name="str_open_gps">請開啟定位服務</string>
+    <string name="error">Error</string>
+    <string name="str_gps_error">網路異常導致定位失敗，請確認您的網路狀態</string>
+    <string name="str_network_err">網路異常</string>
+
+    <!-- **** Dialog **** -->
+    <string name="str_exit">離開</string>
+    <string name="str_yes">是</string>
+    <string name="str_no">否</string>
+    <string name="str_confirm_exit">確定離開</string>
+    <string name="str_go_homepage">回首頁</string>
+
+    <!-- Facebook appID -->
+    <string name="app_id">507214719383737</string>
+
+    <!-- Google clientID -->
+    <string name="client_id">517373703671-6lqb81rl8db1e3p7f2i5djtsuptf6qd9.apps.googleusercontent.com</string>
+    <string name="loginSuccessRedirectURL">http://garden.decoder.com.tw/micromovie/googleLogin.html</string>
+
+    <!-- Google GCM Project number -->
+    <string name="gcm_project_number">517373703671</string>
+
+    <!-- Supertaste -->
+    <string name="facebook_fan_page_publish_confirm">是否以粉絲專頁的身份分享？</string>
+
+</resources>

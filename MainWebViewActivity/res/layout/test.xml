@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_gravity="center_vertical"
+            android:layout_marginTop="20dp" android:layout_marginLeft="40dp">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="起點"
+                android:id="@+id/textView" android:layout_gravity="center_horizontal|top"/>
+        <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/startSelect" android:layout_gravity="center_horizontal|top" android:spinnerMode="dialog"/>
+        <Spinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/startSelect2" android:layout_gravity="center_horizontal|top" android:spinnerMode="dialog"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_gravity="center_vertical" android:layout_marginTop="20dp"
+            android:layout_marginLeft="40dp">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="迄點"
+                android:id="@+id/textView1" android:layout_gravity="center_horizontal|top"/>
+        <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/endSelect" android:layout_gravity="center_horizontal|top" android:spinnerMode="dialog"/>
+        <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/endSelect2" android:layout_gravity="center_horizontal|top" android:spinnerMode="dialog"/>
+    </LinearLayout>
+    <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_gravity="center"
+            android:id="@+id/resultLayout">
+        <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="20dp" android:layout_gravity="center">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="車種"
+                    android:id="@+id/textView2" android:layout_gravity="center_horizontal|top"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="小型車"
+                    android:id="@+id/textView3" android:layout_gravity="center_horizontal|top"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="大客貨車"
+                    android:id="@+id/textView4" android:layout_gravity="center_horizontal|top"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="聯結車"
+                    android:id="@+id/textView5" android:layout_gravity="center_horizontal|top"/>
+        </TableRow>
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="收費距離"
+                    android:id="@+id/textView6" android:layout_gravity="center" android:clickable="false"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:id="@+id/small_distance" android:layout_column="1"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="314.2km"
+                    android:id="@+id/big_distance" android:layout_column="2"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:id="@+id/link_distance" android:layout_column="3"/>
+        </TableRow>
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="通行費(來回)"
+                    android:id="@+id/textView7" android:layout_gravity="center" android:clickable="false"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="375.0"
+                    android:id="@+id/small_cost" android:layout_column="1"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="470.0"
+                    android:id="@+id/big_cost" android:layout_column="2"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="564.0"
+                    android:id="@+id/link_cost" android:layout_column="3"/>
+        </TableRow>
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" android:layout_gravity="center">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="長途優惠(元)"
+                    android:id="@+id/textView8" android:layout_gravity="center" android:clickable="false"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-33.7"
+                    android:id="@+id/small_long" android:layout_column="1"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-42.5"
+                    android:id="@+id/big_long" android:layout_column="2"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-51.0"
+                    android:id="@+id/link_long" android:layout_column="3"/>
+        </TableRow>
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" android:layout_gravity="center">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="免費里程(元)"
+                    android:id="@+id/textView9" android:layout_gravity="center" android:clickable="false"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-24"
+                    android:id="@+id/small_free" android:layout_column="1"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-30"
+                    android:id="@+id/big_free" android:layout_column="2"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-36"
+                    android:id="@+id/link_free" android:layout_column="3"/>
+        </TableRow>
+        <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="合計(元)"
+                    android:id="@+id/textView10" android:layout_gravity="center" android:clickable="false"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="317"
+                    android:id="@+id/small_total" android:layout_column="1"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="398"
+                    android:id="@+id/big_total" android:layout_column="2"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="477"
+                    android:id="@+id/link_total" android:layout_column="3"/>
+        </TableRow>
+        <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent" android:layout_gravity="center">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="9折優惠(元)"
+                    android:id="@+id/textView11" android:layout_gravity="center" android:clickable="false"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="285"
+                    android:id="@+id/small_nine" android:layout_column="1"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="358"
+                    android:id="@+id/big_nine" android:layout_column="2"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="429"
+                    android:id="@+id/link_nine" android:layout_column="3"/>
+        </TableRow>
+        <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent" android:layout_gravity="center">
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="查看詳細通行路線"
+                    android:layout_span="2"
+                    android:id="@+id/button" android:layout_gravity="center"/>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="來回費用"
+                    android:layout_span="2"
+                    android:id="@+id/button" android:layout_gravity="center"/>
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>
