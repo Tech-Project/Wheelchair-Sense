@@ -17,13 +17,19 @@ import android.util.Log;
 import android.view.Window;
 import android.webkit.WebView;
 import com.google.android.gcm.GCMRegistrar;
+import edu.ntu.esos.GPS.*;
 import com.neux.proj.insurance.utility.WebViewUtils;
-import com.neux.proj.insurance.utility.WebViewUtils;
+
 
 public class MainWebViewActivity extends Activity
 {
     public static WebView m_WV;
 
+    // Yuki added 2014.10.24  GPS function
+  	GPSTracker gps;
+  	double latitude=0.0;
+  	double longitude=0.0;
+  	
 //    private GetNowLocation GetLocation;
 
     private static ProgressDialog progressBar = null;
@@ -107,6 +113,7 @@ public class MainWebViewActivity extends Activity
 
         //InitWebVie
         WebViewUtils.setDefaultSetting(m_WV, this);
+       
 //
         m_WV.addJavascriptInterface(new WebViewJSInterface(this,null), "DeviceInterface");// Cloud Added 20131108 GetLocation
 
@@ -117,7 +124,8 @@ public class MainWebViewActivity extends Activity
         Log.e("DEBUG","MainWebViewActivity start4");
 
     }
-
+    
+   
     @Override
     protected void onNewIntent(Intent intent) {
 

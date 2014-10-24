@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">MissNo.3</string>
-    <string name="GetUrl">http://garden.decoder.com.tw/insurance_crm</string>
-
+    <string name="app_name">smartchair</string>
+    <string name="GetUrl">http://garden.decoder.com.tw/smartchair</string>
     <string name="loading">載入中...</string>
     <string name="action_settings">Settings</string>
     <string name="str_year">年</string>
@@ -36,5 +35,7 @@
 
     <!-- Supertaste -->
     <string name="facebook_fan_page_publish_confirm">是否以粉絲專頁的身份分享？</string>
+    <string name="title_activity_gps">GpsActivity</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>

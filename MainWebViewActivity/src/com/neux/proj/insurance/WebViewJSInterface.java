@@ -1,21 +1,27 @@
 package com.neux.proj.insurance;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import edu.ntu.esos.GPS.*;
 import android.accounts.Account;
 import android.accounts.AccountManager;
-import android.app.Activity;
 import android.app.PendingIntent;
-import android.content.*;
+import android.content.ContentResolver;
+import android.content.ContentUris;
+import android.content.ContentValues;
+import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.telephony.SmsManager;
-import android.widget.Toast;
+import android.util.Log;
+import android.webkit.JavascriptInterface;
 
 import com.google.android.gcm.GCMRegistrar;
-import com.neux.proj.insurance.dbsetget.DBGet;
-import com.neux.proj.insurance.utility.JSCallbackUtils;
-import com.neux.proj.insurance.R;
 import com.neux.proj.insurance.contacts.ShowContacts;
 import com.neux.proj.insurance.dbsetget.DBGet;
 import com.neux.proj.insurance.dbsetget.DBSet;
@@ -24,14 +30,7 @@ import com.neux.proj.insurance.location.GetNowLocation;
 import com.neux.proj.insurance.utility.DateUtils;
 import com.neux.proj.insurance.utility.JSCallbackUtils;
 import com.neux.proj.insurance.utility.NetworkUtil;
-
-import android.net.Uri;
-import android.util.Log;
-import android.webkit.JavascriptInterface;
 import com.neux.proj.insurance.utility.StringUtils;
-
-import java.net.URL;
-import java.util.*;
 
 
 public class WebViewJSInterface// extends Activity
@@ -60,7 +59,9 @@ public class WebViewJSInterface// extends Activity
     private static String publishSuccessCallbackFunction = null;
     private static List<String> publishSuccessCallbackFunctionParams = new ArrayList<String>();
 
-
+    
+    
+    
     public WebViewJSInterface(Context context,GetNowLocation location)
     {
         mContext = context;
@@ -317,6 +318,37 @@ public class WebViewJSInterface// extends Activity
                 "}";
     }
 
+    
+    //Yuki added 2014.10.24  latitude and  longitude Function
+    @JavascriptInterface
+    public String getGPS() {
+
+        StringBuilder json = new StringBuilder();
+
+
+        try{
+        	
+        	GpsActivity gps = new GpsActivity();
+        	
+            json.append("{\"latitude\": \""+gps.getLatitude()+"\",\n" +
+                        "    \"longitude\": \""+gps.getLongitude()+"\"}");
+
+        }catch(Exception e) {
+            Log.e("DEBUG",e.getMessage());
+            e.printStackTrace();
+            JSCallbackUtils.callJsAlert(MainWebViewActivity.m_WV,e.getMessage());
+        }
+
+
+        return "{\n" +
+                "  \"position\": ["  + json.toString() + "]\n" +
+                "}";
+    }
+
+
+    
+
+    
     @JavascriptInterface
     public String updateCalendarEvent(String eventID,String start,String end,String title,String description) {
 
