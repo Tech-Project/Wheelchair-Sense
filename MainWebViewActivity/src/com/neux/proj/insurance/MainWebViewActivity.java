@@ -18,7 +18,6 @@ import android.view.Window;
 import android.webkit.WebView;
 import com.google.android.gcm.GCMRegistrar;
 import com.neux.proj.insurance.utility.WebViewUtils;
-import com.neux.proj.insurance.utility.WebViewUtils;
 
 public class MainWebViewActivity extends Activity
 {

@@ -20,6 +20,12 @@ public class GpsActivity extends Activity {
 		setContentView(R.layout.gps);
 	}
 	
+	public GpsActivity(){
+		
+		showCurrentLocation();
+		
+	}
+	
 	 protected void showCurrentLocation() {
 		  
 	        // create class object

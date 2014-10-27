@@ -84,16 +84,18 @@ public final class R {
         public static final int webview=0x7f080003;
     }
     public static final class layout {
-        public static final int google=0x7f030000;
-        public static final int gps=0x7f030001;
-        public static final int image=0x7f030002;
-        public static final int main=0x7f030003;
-        public static final int newbrowser=0x7f030004;
-        public static final int splash=0x7f030005;
-        public static final int test=0x7f030006;
+        public static final int accelerometer=0x7f030000;
+        public static final int google=0x7f030001;
+        public static final int gps=0x7f030002;
+        public static final int image=0x7f030003;
+        public static final int main=0x7f030004;
+        public static final int newbrowser=0x7f030005;
+        public static final int splash=0x7f030006;
+        public static final int test=0x7f030007;
     }
     public static final class menu {
-        public static final int gps=0x7f070000;
+        public static final int accelerometer=0x7f070000;
+        public static final int gps=0x7f070001;
     }
     public static final class string {
         public static final int GetUrl=0x7f060001;
@@ -112,6 +114,7 @@ public final class R {
         /**  Google GCM Project number 
          */
         public static final int gcm_project_number=0x7f060016;
+        public static final int hello_world=0x7f060019;
         public static final int loading=0x7f060002;
         public static final int loginSuccessRedirectURL=0x7f060015;
         public static final int str_confirm_exit=0x7f060011;
@@ -130,5 +133,6 @@ public final class R {
         public static final int str_second=0x7f060009;
         public static final int str_year=0x7f060004;
         public static final int str_yes=0x7f06000f;
+        public static final int title_activity_accelerometer=0x7f060018;
     }
 }
