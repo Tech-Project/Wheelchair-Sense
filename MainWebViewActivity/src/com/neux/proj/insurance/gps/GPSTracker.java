@@ -1,4 +1,4 @@
-package edu.ntu.esos.GPS;
+package com.neux.proj.insurance.gps;
 
 import android.app.AlertDialog;
 import android.app.Service;

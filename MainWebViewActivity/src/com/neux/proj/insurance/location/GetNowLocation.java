@@ -10,6 +10,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 
 public class GetNowLocation  implements LocationListener
 {
@@ -58,6 +59,7 @@ public class GetNowLocation  implements LocationListener
 		} 
 		else 	
 		{
+			Log.d("Location","NULL");
 			mLatitude = "0";
 			mLongitude = "0";
 		}
@@ -73,8 +75,14 @@ public class GetNowLocation  implements LocationListener
 			JSONitem.put("longitude", mLongitude);
 		}catch (Exception e)
 		{
+			
+			
 			return "false";
 		}
+		
+		System.out.print("Location"+JSONitem.toString());
+		//Log.d("Location2", JSONitem.toString());
+		
 		return JSONitem.toString();
 	}
 	
@@ -83,7 +91,7 @@ public class GetNowLocation  implements LocationListener
 	{
 		if(getLocationFlag) 
     	{
-    		mLocationManager.requestLocationUpdates(bestProvider, 1000, 1, this);
+    		mLocationManager.requestLocationUpdates(bestProvider, 100, 1, this);
 			//服務提供者、更新頻率60000毫秒=1分鐘、最短距離、地點改變時呼叫物件
 		} 
 	}

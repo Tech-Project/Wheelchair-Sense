@@ -1,11 +1,18 @@
-package edu.ntu.esos.GPS;
+package com.neux.proj.insurance.gps;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.neux.proj.insurance.R;
+import com.neux.proj.insurance.R.id;
+import com.neux.proj.insurance.R.layout;
+import com.neux.proj.insurance.R.menu;
+
+
+
 
 public class GpsActivity extends Activity {
 
@@ -24,6 +31,7 @@ public class GpsActivity extends Activity {
 		
 		showCurrentLocation();
 		
+
 	}
 	
 	 protected void showCurrentLocation() {

@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import edu.ntu.esos.GPS.GpsActivity;
 import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.app.Activity;
 import android.app.PendingIntent;
+import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
@@ -26,11 +27,13 @@ import com.neux.proj.insurance.contacts.ShowContacts;
 import com.neux.proj.insurance.dbsetget.DBGet;
 import com.neux.proj.insurance.dbsetget.DBSet;
 import com.neux.proj.insurance.dbsetget.dbColumnInterface;
+import com.neux.proj.insurance.gps.GpsActivity;
 import com.neux.proj.insurance.location.GetNowLocation;
 import com.neux.proj.insurance.utility.DateUtils;
 import com.neux.proj.insurance.utility.JSCallbackUtils;
 import com.neux.proj.insurance.utility.NetworkUtil;
 import com.neux.proj.insurance.utility.StringUtils;
+
 
 
 public class WebViewJSInterface// extends Activity
@@ -316,34 +319,95 @@ public class WebViewJSInterface// extends Activity
                 "}";
     }
 
-    
-    
-    
+    // Cloud Added 20131108 GetLocation Begin ..
     @JavascriptInterface
-    public String getGPS() {
-
-        StringBuilder json = new StringBuilder();
-
-        int count = 0;
-
+    public String getLocation()
+    {
         try{
-          GpsActivity gps = new GpsActivity();
+            //MainWebViewActivity.GetLocation.Update();
+            
+        	
+        	mLocation.Update();
 
-          json.append("{\"latitude\": \""+gps.getLatitude()+"\",\n" +
-                        "    \"longitude\": \""+gps.getLongitude()+"\"}");
+            String location = mLocation.getLocation();
 
+            return location;
         }catch(Exception e) {
             Log.e("DEBUG",e.getMessage());
             e.printStackTrace();
             JSCallbackUtils.callJsAlert(MainWebViewActivity.m_WV,e.getMessage());
         }
 
-
-        return "{\n" +
-                "  \"position\": ["  + json.toString() + "]\n" +
-                "}";
+        return "false";
     }
     
+  //Yuki added 2014-10-27--about js get gps
+    @JavascriptInterface
+    public String getGPS()
+    {
+    	StringBuilder json = new StringBuilder();
+    
+    	try{
+        	mLocation= new GetNowLocation(mContext);
+            //MainWebViewActivity.GetLocation.Update();
+            mLocation.Update();
+
+            String location = mLocation.getLocation();
+            
+            Log.i("location info",location);
+            
+            return "{\n" +
+            "  \"position\": ["  + location  + "]\n" +
+            "}";
+            
+           // return location;
+        }catch(Exception e) {
+            Log.e("DEBUG",e.getMessage());
+            e.printStackTrace();
+            JSCallbackUtils.callJsAlert(MainWebViewActivity.m_WV,e.getMessage());
+        }
+
+        return "false";
+    }
+   /*
+    
+    @JavascriptInterface
+    public String getGPS() {
+
+        StringBuilder json = new StringBuilder();
+//        GpsActivity gps = new GpsActivity();
+//        json.append("{\"latitude\": \""+Double.toString(gps.getLatitude())+"\",\n" +
+//              "    \"longitude\": \""+Double.toString(gps.getLongitude())+"\"}");
+
+        try{
+        	
+        	Activity activity = new Activity();
+          
+            Intent mainIntent = new Intent(); 
+            
+            mainIntent.setComponent(new ComponentName("com.neux.proj.insurance.gps","com.neux.proj.insurance.gps.GpsActivity"));
+            
+            mContext.startActivity(mainIntent);
+            
+        GpsActivity gps = new GpsActivity();
+//
+          json.append("{\"latitude\": \""+gps.getLatitude()+"\",\n" +
+                        "    \"longitude\": \""+gps.getLongitude()+"\"}");
+          
+          json.append("{\"latitude\": \""+"33"+"\",\n" +
+                  "    \"longitude\": \""+"55"+"\"}");
+
+        }catch(Exception e) {
+            Log.e("DEBUG_GPS",e.getMessage());
+            e.printStackTrace();
+            JSCallbackUtils.callJsAlert(MainWebViewActivity.m_WV,e.getMessage());
+        }
+
+      return "{\n" +
+      "  \"position\": ["  + json.toString() + "]\n" +
+      "}";
+    }
+    */
     @JavascriptInterface
     public String updateCalendarEvent(String eventID,String start,String end,String title,String description) {
 
@@ -413,25 +477,7 @@ public class WebViewJSInterface// extends Activity
     }
     // Cloud Added 20130923 End ..
 
-    // Cloud Added 20131108 GetLocation Begin ..
-    @JavascriptInterface
-    public String getLocation()
-    {
-        try{
-            //MainWebViewActivity.GetLocation.Update();
-            mLocation.Update();
-
-            String location = mLocation.getLocation();
-
-            return location;
-        }catch(Exception e) {
-            Log.e("DEBUG",e.getMessage());
-            e.printStackTrace();
-            JSCallbackUtils.callJsAlert(MainWebViewActivity.m_WV,e.getMessage());
-        }
-
-        return "false";
-    }
+   
     // Cloud Added 20131108 End ..
 
     // Cloud Added 20130921 Begin ..

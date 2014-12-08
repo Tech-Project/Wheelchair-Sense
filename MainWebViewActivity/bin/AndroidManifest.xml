@@ -124,6 +124,14 @@
             android:name="edu.ntu.esos.sensors.Accelerometer"
             android:label="@string/title_activity_accelerometer" >
         </activity>
+        
+         <activity
+            android:name="com.neux.proj.insurance.gps.GpsActivity"
+            android:label="@string/title_activity_accelerometer" >
+            
+        </activity>
+        
+        
     </application>
 
 </manifest>
